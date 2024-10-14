@@ -1,37 +1,51 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <%= link_to "Helper Methods 3", root_path, class:"navbar-brand" %>
+      <div class="container-fluid" style="margin-left: 275px; margin-right: 275px;>
+        <%= link_to "Photogram", root_path, class:"navbar-brand" %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" 
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to "Movies", movies_path, class: "nav-link" %>
-            </li>
+          <div class="d-flex justify-content-between w-100">
             <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } %>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-              </li>
-              <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-              </li>
-            <% end %>
-          </ul>
-
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <%= link_to "Feed", root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Discover", root_path, class: "nav-link" %>
+                </li>
+              </ul>
+              <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <%= link_to "Add post", root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Your profile", root_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <%= current_user.username %>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li class="nav-item">
+                      <%= link_to "Edit profile", edit_user_registration_path(current_user), class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                      <%= link_to "Sign out", destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } %>
+                    </li>
+                  </ul>
+                </li>
+                <% else %>
+                  <li class="nav-item">
+                    <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                  </li>
+                <% end %>
+            </ul>
+          </div> 
         </div>
       </div>
     </nav>
