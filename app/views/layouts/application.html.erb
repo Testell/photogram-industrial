@@ -16,8 +16,15 @@
 
   <%= render partial: "shared/navbar"%>
 
-   <div class="container mt-3">
-      <%= render partial: "shared/flash_messages" %>
+   <div class="container">
+      <% if notice.present? %>
+        <%= render partial: "shared/flash_messages", locals: { message: notice, css_class: "success" } %>
+      <% end %>
+      
+      <% if alert.present? %>
+        <%= render partial: "shared/flash_messages", locals: { message: alert, css_class: "danger" } %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
