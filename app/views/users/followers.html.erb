@@ -1,0 +1,13 @@
+<%= render partial: "/users/profile_nav" %>
+
+<% @followers.each do |fan| %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <ul class="list-group text-center">
+        <%= link_to fan.username, user_path(fan.username), class: "list-group-item" %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
