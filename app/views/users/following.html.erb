@@ -1,0 +1,13 @@
+<%= render partial: "/users/profile_nav" %>
+
+<% @following.each do |followed_user| %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <ul class="list-group text-center">
+        <%= link_to followed_user.username, user_path(followed_user.username), class: "list-group-item" %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>
