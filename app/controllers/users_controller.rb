@@ -11,4 +11,9 @@ class UsersController < ApplicationController
     @user = User.find_by!(username: params.fetch(:username))
     @feed = Photo.where(owner_id: @user.leaders.pluck(:id)).order(created_at: :desc)
   end
+
+  def following
+    @user = User.find_by!(username: params.fetch(:username))
+    @following = @user.leaders
+  end
 end
